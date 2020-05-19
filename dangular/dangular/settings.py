@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'scrum',
     'music.apps.MusicConfig',
+    'accounts.apps.AccountsConfig'
 ]
 
 MIDDLEWARE = [
@@ -82,6 +83,14 @@ DATABASES = {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    # connecting to postgresql
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'db_name',
+    #     'USER': 'postgres',
+    #     'PASSWORD': '1234',
+    #     'HOST' : 'localhost'
+    # }
 }
 
 
@@ -126,3 +135,6 @@ STATICFILES_DIRS=[
     os.path.join(BASE_DIR, 'static')
 ]
 STATIC_ROOT= os.path.join(BASE_DIR,'assets')
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

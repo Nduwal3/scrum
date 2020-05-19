@@ -6,11 +6,15 @@ class Albums(models.Model):
     album_title = models.CharField(max_length=500)
     genre = models.CharField(max_length=100)
     album_logo = models.CharField(max_length=1000)
+    price = models.IntegerField()
+    description = models.TextField()
+    is_liked = models.BooleanField(default=False)
+    img = models.ImageField(upload_to='images')
+    
 
-    # string representation of Albums
+     # string representation of Albums
     def __str__(self):
-        return self.artist + ' - ' + self.album_title + '-' + self.genre 
-
+        return self.artist + ' - ' + self.album_title + '-' 
 
 class Song(models.Model):
     album = models.ForeignKey(Albums, on_delete=models.CASCADE)

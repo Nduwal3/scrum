@@ -1,4 +1,6 @@
 {% load static %}
+{% static "img" as baseurl%}
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -57,7 +59,7 @@ http://www.tooplate.com/view/2101-insertion
                   <a href="about.html" class="nav-link tm-nav-link tm-text-white">About</a>
                 </li>
                 <li class="nav-item">
-                  <a href="contact.html" class="nav-link tm-nav-link tm-text-white">Contact</a>
+                  <a href="accounts/register" class="nav-link tm-nav-link tm-text-white">Register</a>
                 </li>
               </ul>
             </nav>
@@ -88,36 +90,24 @@ http://www.tooplate.com/view/2101-insertion
           </div>
         </form>
       </div>
+<!-- Album section -->
 
       <div class="row tm-albums-container grid">
+        <div class="col-sm-12 col-12 col-md-12 col-lg-12 col-xl-12">
+          <h3>Latest Albums</h3>
+        </div>
+        {% for album in all_albums %}
         <div class="col-sm-6 col-12 col-md-6 col-lg-3 col-xl-3 tm-album-col">
           <figure class="effect-sadie">
-            <img src="{% static 'img/insertion-260x390-01.jpg' %}" alt="Image" class="img-fluid">
+            <img src="{{album.img.url}}" alt="Image" class="img-fluid">
             <figcaption>
-              <h2>First Album</h2>
-              <p>Rollover text and description text goes here over mouse over...</p>
+              <h2>{{ album.album_title }}</h2>
+              <p>{{ album.description }}</p>
             </figcaption>
           </figure>
         </div>
-        <div class="col-sm-6 col-12 col-md-6 col-lg-3 col-xl-3 tm-album-col">
-          <figure class="effect-sadie">
-            <img src="{% static 'img/insertion-260x390-02.jpg' %}" alt="Image" class="img-fluid">
-            <figcaption>
-              <h2>Album Two</h2>
-              <p>Maecenas iaculis et turpis et iaculis. Aenean at volutpat diam.</p>
-            </figcaption>
-          </figure>
-        </div>
-        <div class="col-sm-6 col-12 col-md-6 col-lg-3 col-xl-3 tm-album-col">
-          <figure class="effect-sadie">
-            <img src="{% static 'img/insertion-260x390-03.jpg' %}" alt="Image" class="img-fluid">
-            <figcaption>
-              <h2>Third Album</h2>
-              <p>Vivamus eget elit purus. Nullam consectetur porttitor elementum.</p>
-            </figcaption>
-          </figure>
-        </div>
-        <div class="col-sm-6 col-12 col-md-6 col-lg-3 col-xl-3 tm-album-col">
+        {% endfor %}
+        <!-- <div class="col-sm-6 col-12 col-md-6 col-lg-3 col-xl-3 tm-album-col">
           <figure class="effect-sadie">
             <img src="{% static 'img/insertion-260x390-04.jpg' %}" alt="Image" class="img-fluid">
             <figcaption>
@@ -125,9 +115,9 @@ http://www.tooplate.com/view/2101-insertion
               <p>Praesent nec feugiat dolor, elementum mollis purus. Etiam faucibus.</p>
             </figcaption>
           </figure>
-        </div>
-      </div>
-
+        </div>  -->
+      </div>     
+      <!-- end repetition -->
       <div class="row">
         <div class="col-lg-12">
           <div class="tm-tag-line">
@@ -139,6 +129,7 @@ http://www.tooplate.com/view/2101-insertion
       <div class="row mb-5">
         <div class="col-xl-12">
           <div class="media-boxes">
+            <!-- featuring Albums -->
             <div class="media">
               <img src="{% static 'img/insertion-140x140-01.jpg' %}" alt="Image" class="mr-3">
               <div class="media-body tm-bg-gray">
@@ -194,20 +185,7 @@ http://www.tooplate.com/view/2101-insertion
                 </div>
               </div>
             </div>
-
-            <div class="media">
-              <img src="{% static 'img/insertion-140x140-05.jpg' %}" alt="Image" class="mr-3">
-              <div class="media-body tm-bg-gray">
-                <div class="tm-description-box">
-                  <h5 class="tm-text-blue">Vestibulum mattis quam sodales</h5>
-                  <p class="mb-0">Maecenas sit amet nibh faucibus, tincidunt nisl sit amet, elementum eros. Fusce congue ligula gravida lorem lacinia.</p>
-                </div>
-                <div class="tm-buy-box">
-                  <a href="#" class="tm-bg-blue tm-text-white tm-buy">buy</a>
-                  <span class="tm-text-blue tm-price-tag">$5.25</span>
-                </div>
-              </div>
-            </div>
+            <!-- end of featuring boxes -->
           </div> <!-- media-boxes -->
         </div>
       </div>
